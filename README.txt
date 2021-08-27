@@ -1,12 +1,21 @@
-//se instalo
-npm intall express mysql nodemon -D
+//Software requeridos
+Node.js
+https://nodejs.org/en/
 
-//se levanta host local
+Base de datos
+Es importante que primero, tengas creada una base de datos con el nombre : kodeardb.
+
+// clonar e instalar en la local
+git clone https://github.com/demisforever/kodear-rest-api.git
+cd kodear-rest-api
+
+// sobre el proyecto se instaló
+npm install express mysql nodemon -D
+
+//Levantar el servidor
 nodemon index.js
 
 // formas de consultas: GET
-http://localhost:3000/
-
 //lista de usuarios por id
 http://localhost:3000/usuario/1/
 
@@ -16,7 +25,7 @@ http://localhost:3000/posiciones/
 //lista de posiciones paginadas con la forma: '/tabla/comienzo/tamaño/'
 http://localhost:3000/posiciones/7/2/
 
-//formato POST
+//forma de consulta: POST
 http://localhost:3000/usuario
 
 {
