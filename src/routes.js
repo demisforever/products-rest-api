@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const mysqlconnection = require('./database');
+const errorRuta = { "Error reconocido": "url incorrecta",
+"Quizás intento ingresar a (parámetros de ejemplo)": ["#/posiciones/", "#/posiciones/7/2/", "#/usuario/1/"],
+"Sólo para función POST": "#/usuario/"
+};
 
 //importa controladores
 const posicionController = require('./controller/posicionController');
@@ -10,7 +14,7 @@ const usuarioController = require('./controller/usuarioController');
 router.post('/:name/', usuarioController.create);
 
 router.get('/', (req, res) => {
-    res.json({ "Error reconocido": "url incorrecta" });
+    res.json(errorRuta);
 });
 
 router.get('/:nombre/', (req, res) => { 
@@ -18,7 +22,7 @@ router.get('/:nombre/', (req, res) => {
     if (nombre == 'posiciones') {
         posicionController.list(req, res);
     } else {
-        res.json({ "Error reconocido": "url incorrecta" });
+        res.json(errorRuta);
     }
 });
 
@@ -28,7 +32,7 @@ router.get('/:nombre/:id/', (req, res) => {
     if (nombre == 'usuario') {
         usuarioController.listById(req, res);
     } else {
-        res.json({ "Error reconocido": "url incorrecta" });
+        res.json(errorRuta);
     }
 });
 
@@ -38,7 +42,7 @@ router.get('/:nombre/:start/:size', (req, res) => {
     if (nombre == 'posiciones') {
         posicionController.pageList(req, res);
     } else {
-        res.json({ "Error reconocido": "url incorrecta" });
+        res.json(errorRuta);
     }
 });
 
